@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <img onclick="window.location.href='index.html'" src="images/LogoCodex.png" alt="">
+        <div class="navigation">
+            <img id="menu-btn" src="images/menu.png" alt="">
+        </div>
+    </nav>
+
+    <section id="contact">
+        <div class="form" id="form">
+            <form method="post" action="" class="pagos-form">
+                <h4 class="tit">INFORMAR UN PAGO</h4>
+                <div class="form-row">
+                    <input id="name_1" type="text" name="Nombre" placeholder="Nombre" required>
+                    <input id="name_2" type="text" name="Apellido" placeholder="Apellido" required>
+                </div>
+                <div class="form-col">
+                    <div class="select-wrapper">
+                        <select id="metodoPago" name="Pago" required class="form-input">
+                            <option value="" disabled selected hidden>Metodo de pago</option>
+                            <option value="transferencia">Transferencia</option>
+                            <option value="efectivo">Efectivo</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="select-wrapper">
+                        <select id="curso" name="Curso" required class="form-input">
+                            <option value="" disabled selected hidden>Curso</option>
+                            <option value="">Python 1</option>
+                            <option value="">Python 2</option>
+                            <option value="">Desarrollo Web 1</option>
+                            <option value="">Desarrollo Web 2</option>
+                            <option value="">Mecanica Automotor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="select-wrapper">
+                        <select id="mes" name="Mes" required class="form-input">
+                            <option value="" disabled selected hidden>Mes</option>
+                            <option value="enero">Enero</option>
+                            <option value="febrero">Febrero</option>
+                            <option value="marzo">Marzo</option>
+                            <option value="abril">Abril</option>
+                            <option value="mayo">Mayo</option>
+                            <option value="junio">Junio</option>
+                            <option value="julio">Julio</option>
+                            <option value="agosto">Agosto</option>
+                            <option value="septiembre">Septiembre</option>
+                            <option value="octubre">Octubre</option>
+                            <option value="noviembre">Noviembre</option>
+                            <option value="diciembre">Diciembre</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="file-input-wrapper">
+                        <label class="file-input-labell" for="">Comprobante:</label>
+                        <label class="file-input-button" for="imagenes">Seleccionar archivos</label>
+                        <input type="file" id="imagenes" name="Imagenes" accept="image/*" multiple required>
+                    </div>
+                    <div class="file-input-wrapper-small">
+                        <small>Solo se permiten archivos de imagen</small>
+                    </div>
+                </div>
+                <div class="form-coll">
+                    <button id="enviar" type="submit" value="Submit">Informar</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script>
+        $(document).ready(function () {
+            $("#metodoPago").change(function () {
+                var selectedMethod = $(this).val();
+                var comprobanteField = $("#imagenes");
+                comprobanteField.prop("required", selectedMethod === "transferencia");
+            });
+        });
+    </script>
+</body>
+
+</html>
